@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pcbwx.mybatis.dao.ActionLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.pcbwx.mybatis.model.ActionLog">
+        <id column="id" property="id" />
+        <result column="service_code" property="serviceCode" />
+        <result column="code" property="code" />
+        <result column="user" property="user" />
+        <result column="action" property="action" />
+        <result column="value" property="value" />
+        <result column="param1" property="param1" />
+        <result column="param2" property="param2" />
+        <result column="param3" property="param3" />
+        <result column="param4" property="param4" />
+        <result column="record_time" property="recordTime" />
+    </resultMap>
+
+</mapper>

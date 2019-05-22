@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pcbwx.mybatis.dao.ConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.pcbwx.mybatis.model.Config" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="cfg_name" property="cfgName" jdbcType="VARCHAR" />
+    <result column="value_str" property="valueStr" jdbcType="VARCHAR" />
+    <result column="value_int" property="valueInt" jdbcType="INTEGER" />
+    <result column="value_time" property="valueTime" jdbcType="TIMESTAMP" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="usable" property="usable" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <!-- 以下为自定义接口 -->
+  <select id="load" resultMap="BaseResultMap" >
+    select *
+    from config
+    where usable = 1
+  </select>
+  <select id="selectByCfgName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select *
+    from config
+    where usable = 1 and cfg_name = #{cfgName,jdbcType=INTEGER}
+  </select>
+</mapper>
