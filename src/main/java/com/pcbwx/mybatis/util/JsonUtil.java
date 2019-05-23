@@ -104,18 +104,4 @@ public class JsonUtil {
 		} 
 		return null;
 	}
-
-	public static void main(String arg[]) {
-		byte[] data = FileUtil.readFile("d:/new.txt");
-		String dataStr = new String(data);
-		System.out.println(dataStr);
-
-//		GetTrainTimeTableResp timeTable = (GetTrainTimeTableResp) JsonUtil.json2obj(dataStr,
-//				GetTrainTimeTableResp.class);
-//		if (timeTable == null) {
-//			System.out.print("timeTable is null");
-//			return;
-//		}
-//		System.out.print("code=" + timeTable.getErrorCode() + ",reason=" + timeTable.getReason());
-	}
 }

@@ -9,9 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pcbwx.mybatis.dao.ActionLogMapper;
-import com.pcbwx.mybatis.dao.LogMapper;
 import com.pcbwx.mybatis.model.ActionLog;
-import com.pcbwx.mybatis.model.Log;
 import com.pcbwx.mybatis.service.LogService;
 
 /**
@@ -20,12 +18,9 @@ import com.pcbwx.mybatis.service.LogService;
  * @author 孙贺宇
  *
  */
-@Service("logService")
+@Service()
 public class LogServiceImpl implements LogService {
     private static Logger logger = LoggerFactory.getLogger(LogServiceImpl.class);
-
-	@Autowired
-	private LogMapper logMapper;
 	@Autowired
 	private ActionLogMapper actionLogMapper;
 
@@ -131,16 +126,6 @@ public class LogServiceImpl implements LogService {
 			return actionLogMapper.insert(record);
 		} catch (Exception e) {
 			// TODO: handle exception
-			logger.error(e.getMessage(), e);
-		}
-		return 0;
-	}
-
-	@Override
-	public int addLog(Log log) {
-		try {
-			return logMapper.insert(log);
-		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		}
 		return 0;

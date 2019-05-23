@@ -1,7 +1,6 @@
 package heyu;
 
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
@@ -9,18 +8,12 @@ import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.autoconfigure.data.redis.DataRedisTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 public class Generator {
 
-	@Test
-	public void start(){
+	public static void main(String[] args) {
 		String packageName = "com.pcbwx.mybatis";
-		generateByTables(packageName, "action_log", "config", "dictionary", "log", "record_utils", "task_clock");
+		generateByTables(packageName, "action_log");
 	}
 
 	private static void generateByTables(String packageName, String... tableNames){
@@ -36,7 +29,6 @@ public class Generator {
 		strategyConfig
 				.setCapitalMode(false)
 				.setEntityLombokModel(false) // 支持lombok插件
-				.setDbColumnUnderline(true)
 				.setNaming(NamingStrategy.underline_to_camel)
 				.setInclude(tableNames);// 表名数组
 		config.setActiveRecord(false)
@@ -54,7 +46,7 @@ public class Generator {
 						new PackageConfig()
 								.setParent(packageName)
 								.setEntity("model")
-								.setMapper("dao")
+								.setMapper("mapper")
 				).execute();
 	}
 

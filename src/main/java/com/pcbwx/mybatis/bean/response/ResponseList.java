@@ -1,10 +1,18 @@
 package com.pcbwx.mybatis.bean.response;
 
-import lombok.Data;
-
 import java.util.Set;
 
-@Data
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+/**
+ * @author heyu
+ * @date 2019/5/23
+ */
+@Setter
+@Getter
+@ToString
 public class ResponseList {
 
     private Set<Integer> items;
